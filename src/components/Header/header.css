@@ -1,0 +1,168 @@
+.ea-header{
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  width: 100%;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  background: linear-gradient(to bottom, rgba(0,0,0,.65), rgba(0,0,0,.15));
+  border-bottom: 1px solid transparent;
+  transition: background .25s ease, border-color .25s ease;
+}
+
+.ea-header.is-scrolled{
+  background: rgba(12,12,16,.70);
+  border-bottom-color: var(--ea-line);
+}
+
+.ea-header__inner{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 12px 18px;
+  height: 64px;                 /* “altura Netflix” */
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+/* Brand */
+.ea-brand{
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--ea-text);
+  flex: 0 0 auto;
+}
+
+/* ✅ trava o tamanho do logo (resolve o “enorme”) */
+.ea-brand__logo{
+  height: 60px;
+  width: auto;
+  object-fit: contain;
+  border-radius: 10px;
+  filter: drop-shadow(0 10px 22px rgba(229,9,20,.16));
+}
+
+.ea-brand__text{
+  font-weight: 800;
+  letter-spacing: .2px;
+  font-size: 16px;
+}
+
+/* Nav */
+.ea-nav{
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex: 1;
+  min-width: 0;
+}
+
+.ea-nav__link{
+  color: var(--ea-muted);
+  text-decoration: none;
+  font-size: 14px;
+  padding: 8px 10px;
+  border-radius: 10px;
+  transition: color .15s ease, background .15s ease;
+  white-space: nowrap;
+}
+
+.ea-nav__link:hover{
+  color: var(--ea-text);
+  background: rgba(255,255,255,.06);
+}
+
+.ea-nav__link--btn{
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.ea-nav__item{
+  position: relative;
+}
+
+/* Dropdown */
+.ea-dropdown{
+  position: absolute;
+  top: 44px;
+  left: 0;
+  min-width: 220px;
+  background: rgba(10,10,14,.94);
+  border: 1px solid var(--ea-line);
+  border-radius: var(--ea-radius);
+  box-shadow: var(--ea-shadow);
+  padding: 8px;
+  opacity: 0;
+  transform: translateY(-6px);
+  pointer-events: none;
+  transition: opacity .15s ease, transform .15s ease;
+}
+
+.ea-dropdown.is-open{
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.ea-dropdown__item{
+  display: block;
+  padding: 10px 10px;
+  border-radius: 10px;
+  color: var(--ea-muted);
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.ea-dropdown__item:hover{
+  background: rgba(255,255,255,.06);
+  color: var(--ea-text);
+}
+
+/* Actions (direita) */
+.ea-actions{
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  flex: 0 0 auto;
+}
+
+.ea-btn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 36px;
+  padding: 0 14px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 700;
+  border: 1px solid var(--ea-line);
+  color: var(--ea-text);
+  background: rgba(255,255,255,.05);
+  transition: transform .12s ease, background .15s ease, border-color .15s ease;
+}
+
+.ea-btn:hover{
+  transform: translateY(-1px);
+  background: rgba(255,255,255,.08);
+}
+
+.ea-btn--primary{
+  border-color: rgba(229,9,20,.55);
+  background: linear-gradient(180deg, var(--ea-red), var(--ea-red-2));
+  box-shadow: 0 14px 40px rgba(229,9,20,.20);
+}
+
+.ea-btn--ghost{
+  background: rgba(255,255,255,.04);
+}
+
+/* Responsivo */
+@media (max-width: 860px){
+  .ea-nav{ display: none; }
+  .ea-brand__text{ display: none; }
+}
